@@ -1,1 +1,0 @@
-# python_sqlite3_project

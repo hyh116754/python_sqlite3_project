@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="u-align-center u-clearfix u-section-1" id="sec-63f6">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-default u-text-1">Meet Our Top 3 Loyal Members</h2>
+        <p class="u-text u-text-2">Meet out longest loyal members.</p>
+        <div class="u-clearfix u-expanded-width u-gutter-50 u-layout-wrap u-layout-wrap-1">
+            <div class="u-layout">
+                <div class="u-layout-row">
+                    {% for usr in user_data_top_three %}
+                    <div class="u-align-center u-container-style u-layout-cell u-left-cell u-size-20 u-size-20-md u-layout-cell-1">
+                        <div class="u-border-2 u-border-grey-25 u-container-layout u-valign-middle u-container-layout-1">
+                            <h4 class="u-text u-text-3">{{ usr['last_name'] }}</h4>
+                            <h3 class="u-text u-text-4">{{ usr['first_name'] }}</h3>
+                            <p class="u-text u-text-5">Member since {{ usr['date_registration'] }}</p>
+                            <a href="/users/{{ usr['user_id'] }}" class="u-border-none u-btn u-btn-round u-button-style u-grey-10 u-hover-palette-2-dark-1 u-radius-50 u-btn-1">Details</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="u-clearfix u-section-2" id="sec-6ec7">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-align-center u-text u-text-default u-text-1">All Subscribers</h2>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1" style="overflow:scroll">
+            <table class="u-table-entity">
+                <colgroup>
+                    <col width="7.2%">
+                    <col width="9.1%">
+                    <col width="8.7%">
+                    <col width="18.3%">
+                    <col width="43.9%">
+                    <col width="12.7%">
+                </colgroup>
+                <thead class="u-grey-10 u-table-header u-table-header-1">
+                    <tr style="height: 61px;">
+                        <th class="u-table-cell u-table-cell-1">user id</th>
+                        <th class="u-table-cell u-table-cell-2">first name</th>
+                        <th class="u-table-cell u-table-cell-3">last name</th>
+                        <th class="u-table-cell u-table-cell-4">email</th>
+                        <th class="u-table-cell u-table-cell-5">home address</th>
+                        <th class="u-table-cell u-table-cell-6">member since</th>
+                    </tr>
+                </thead>
+                <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+                    {% for user in user_data_all %}
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell u-table-cell">{{ user['user_id'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['first_name'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['last_name'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['email'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['address'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['date_registration'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

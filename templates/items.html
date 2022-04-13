@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="u-align-center u-clearfix u-section-1" id="sec-20cb">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">Items</h2>
+        <p class="u-text u-text-2">Feel free to explore our hand selected, high-quality
+            items freshly delivered from local farms. </p>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1" style="overflow:scroll">
+            <table class="u-table-entity">
+                <colgroup>
+                    <col width="20.1%">
+                    <col width="46.4%">
+                    <col width="17.2%">
+                    <col width="16.3%">
+                </colgroup>
+                <thead class="u-grey-10 u-table-header u-table-header-1">
+                    <tr style="height: 61px;">
+                        <th class="u-table-cell u-table-cell-1">item id</th>
+                        <th class="u-table-cell u-table-cell-2">item name</th>
+                        <th class="u-table-cell u-table-cell-3">quantity</th>
+                        <th class="u-table-cell u-table-cell-4">&#11088 numbers</th>
+                    </tr>
+                </thead>
+                <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+                    {% for item in item_data %}
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell">{{ item['item_id'] }}</td>
+                        <td class="u-table-cell">{{ item['item_name'] }}</td>
+                        <td class="u-table-cell">{{ item['quantity'] }}</td>
+                        <td class="u-table-cell">{{ item['num_fav'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

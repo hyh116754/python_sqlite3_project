@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="u-align-center u-clearfix u-section-1" id="sec-a7ce">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <h2 class="u-text u-text-1">{{ user_page_data[0]['first_name']}} {{user_page_data[0]['last_name'] }} 's Subscriptions</h2>
+        <p class="u-text u-text-2">{{ user_page_data[0]['first_name']}} {{user_page_data[0]['last_name'] }} 's favourite items:<br>
+                {% for fav in user_fav %} {{ fav['item_name'] }}<br> {% endfor %}
+             </p>
+    </div>
+</section>
+<section class="overflow scroll u-align-center u-clearfix u-section-2" id="sec-20cb">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-expanded-width u-table u-table-responsive u-table-1" style="overflow:scroll">
+            <table class="u-table-entity">
+                <colgroup>
+                    <col width="20.1%">
+                    <col width="34.6%">
+                    <col width="29%">
+                    <col width="16.3%">
+                </colgroup>
+                <thead class="u-grey-10 u-table-header u-table-header-1">
+                    <tr style="height: 61px;">
+                        <th class="u-table-cell u-table-cell-1">plan id</th>
+                        <th class="u-table-cell u-table-cell-2">plan name</th>
+                        <th class="u-table-cell u-table-cell-3">subscription quantity</th>
+                        <th class="u-table-cell u-table-cell-4">total price<br>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+                    {% for user in user_page_data %}
+                    <tr style="height: 65px;">
+                        <td class="u-table-cell u-table-cell">{{ user['plan_id'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['plan_name'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['s_quantity'] }}</td>
+                        <td class="u-table-cell u-table-cell">{{ user['plan_price'] * user['s_quantity']}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}

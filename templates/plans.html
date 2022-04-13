@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="u-align-center u-clearfix u-section-1" id="sec-20cb">
+    <div class="u-clearfix u-sheet u-sheet-1">
+        <h2 class="u-text u-text-1">Grocery Plans</h2>
+        <p class="u-text u-text-2">we have plans designed by nutritionist that fulfills your daily need.</p>
+        <div class="u-expanded-width u-table u-table-responsive u-table-1" style="overflow:scroll">
+            <table class="u-table-entity">
+                <colgroup>
+                    <col width="20.1%">
+                    <col width="34.6%">
+                    <col width="29%">
+                    <col width="16.3%">
+                </colgroup>
+                <thead class="u-grey-10 u-table-header u-table-header-1">
+                    <tr style="height: 65px;">
+                        <th class="u-table-cell">plan id</th>
+                        <th class="u-table-cell">plan name</th>
+                        <th class="u-table-cell">plan contents</th>
+                        <th class="u-table-cell">price<br>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="u-table-alt-palette-1-light-3 u-table-body">
+                    {% for item in plan_data %}
+                        <tr style="height: 65px;">
+                            <td class="u-table-cell">{{ item['plan_id'] }}</td>
+                            <td class="u-table-cell">{{ item['plan_name'] }}</td>
+                            <td class="u-table-cell">{{ item['plan_contents'] }}</td>
+                            <td class="u-table-cell">{{ item['plan_price'] }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
